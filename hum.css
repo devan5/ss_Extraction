@@ -1,0 +1,54 @@
+﻿.s-text-def,
+.s-text-def:link,
+.s-text-def:visited {
+	color: #333333;
+}
+
+.s-text-primary,
+.s-text-primary:link,
+.s-text-primary:visited {
+	color: #0062CC;
+}
+
+.s-text-info,
+.s-text-info:link,
+.s-text-info:visited {
+	color: #41A7C5;
+}
+
+.s-text-success,
+.s-text-success:link,
+.s-text-success:visited {
+	color: #57AF57;
+}
+
+.s-text-warning,
+.s-text-warning:link,
+.s-text-warning:visited {
+	color: #F9A124;
+}
+
+.s-text-danger,
+.s-text-danger:link,
+.s-text-danger:visited {
+	color: #D34842;
+}
+
+.s-text-inverse,
+.s-text-inverse:link,
+.s-text-inverse:visited{
+	color: #2B2B2B;
+}
+
+.s-text-link,
+.s-text-link:link,
+.s-text-link:visited{
+	color: #0088CC;
+}
+
+
+/*_______
+	define: text-Semantics;
+	Date: 2013.03.22;
+	End
+*/
