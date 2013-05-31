@@ -1,0 +1,115 @@
+// inline-block
+.dib(){
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+}
+
+// 单行居中
+.single-lh(@px){
+	height: @px;
+	line-height: @px;
+}
+
+// 滑动门
+/*
+	<span class="d-btn01">
+		<!-- 里的 元素必须为 .wife 挂钩 -->
+		<span class="d-less-wife"></span>
+	</span>
+*/
+
+/*
+param:
+	(1) url height/line-height
+	(2) url height/line-height wifeName
+	(3) url height/line-height wifeName p
+	(4) url height/line-height wifeName pr pl
+*/
+
+// all
+.d-slide(@url, @h, ...) {
+	background-image: url(@url);
+	background-position: left top;
+	.dib();
+	height: @h;
+	line-height: @h;
+}
+
+// all wife
+.d-slide(@url, @h, @wife:"d-slide-wife", ...){
+
+	.@{wife}{
+		.dib();
+		background-image: url(@url);
+		background-position: right bottom;
+		height: @h;
+		line-height: @h;
+	}
+}
+
+// (1)
+.d-slide(@url, @h){
+	padding: 0 0 0 10px;
+	.d-slide-wife{
+		.dib();
+		background-image: url(@url);
+		background-position: left top;
+		vertical-align: top;
+		padding: 0 10px 0;
+	}
+}
+
+// (2)
+.d-slide(@url, @h, @wife){
+	padding: 0 0 0 10px;
+	.@{wife}{
+		padding: 0 10px 0;
+	}
+}
+
+// (3)
+.d-slide(@url, @h, @wife, @p){
+	padding: 0 0 0 @p;
+	.@{wife}{
+		padding: 0 @p 0;
+	}
+}
+
+// (4)
+.d-slide(@url, @h, @wife, @pl, @pr){
+	padding: 0 0 0 @pl;
+	.@{wife}{
+		padding: 0 @pr 0;
+	}
+}
+
+// 多重边框
+.borders(...) {
+	-border-top-colors: @arguments;
+	border-right-colors: @arguments;
+	border-bottom-colors: @arguments;
+	border-left-colors: @arguments;
+	-moz-border-top-colors: @arguments;
+	-moz-border-right-colors: @arguments;
+	-moz-border-bottom-colors: @arguments;
+	-moz-border-left-colors: @arguments;
+}
+
+// Test Apply Environment__________
+
+.d-btn01{
+	.d-slide("url01", "lh");
+}
+
+.d-btn02{
+	.d-slide("url02", "lh02", wife);
+}
+
+.d-btn03{
+	.d-slide("url03", "lh03", wife, 20em);
+}
+
+.d-btn04{
+	.d-slide("url04", "lh04", wiXfe, 16em, 17px);
+}
