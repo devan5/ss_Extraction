@@ -27,24 +27,32 @@ param:
 	(4) url height/line-height wifeName pr pl
 */
 
+.bgp-rb{
+  background-position: right bottom;
+}
+.bgp-lt{
+  background-position: left top;
+}
+
 // all
 .d-slide(@url, @h, ...) {
 	background-image: url(@url);
-	background-position: left top;
+	.bgp-lt;
 	.dib();
 	height: @h;
 	line-height: @h;
 }
 
 // all wife
-.d-slide(@url, @h, @wife:"d-slide-wife", ...){
+.d-slide(@url, @h, @wife:d-slide-wife, ...){
 
 	.@{wife}{
 		.dib();
 		background-image: url(@url);
-		background-position: right bottom;
+    .bgp-rb;
 		height: @h;
 		line-height: @h;
+    vertical-align: top;
 	}
 }
 
@@ -54,9 +62,9 @@ param:
 	.d-slide-wife{
 		.dib();
 		background-image: url(@url);
-		background-position: left top;
-		vertical-align: top;
+		.bgp-rb;
 		padding: 0 10px 0;
+		vertical-align: top;
 	}
 }
 

@@ -1,14 +1,31 @@
 // inline-block
-.dib{
-	display: inline-block;
-	*display: inline;
-	*zoom:1;
+.dib {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
 
 // 单行居中
-@mixin single-lh($px){
-	height: $px;
-	line-height: $px;
+@mixin single-lh($px) {
+  height: $px;
+  line-height: $px;
+}
+
+// 清除浮动
+.clearfix {
+  &:before,
+  &:after {
+    clear: both;
+    content: "\200B";
+    display: block;
+    height: 0;
+  }
+}
+
+// transparent
+@mixin transparent($num) {
+  opacity: $num;
+  filter: alpha(opacity=$num*100);
 }
 
 // 滑动门
@@ -27,17 +44,20 @@ param:
 	(4) url height/line-height wifeName pr pl
 */
 
-.bgp-rb{
+
+.bgp-rb {
   background-position: right bottom;
 }
-.bgp-lt{
+
+.bgp-lt {
   background-position: left top;
 }
+
 //
-@mixin d-slide($url, $h, $wife:"d-slide-wife", $pl:1em, $pr:$pl){
-	background-image: url($url);
-	@extend .bgp-lt;
-	@extend .dib;
+@mixin d-slide($url, $h, $wife: "d-slide-wife", $pl: 1em, $pr: $pl) {
+  background-image: url($url);
+  @extend .bgp-lt;
+  @extend .dib;
   @include single-lh($h);
   .#{$wife} {
     @extend .dib;
@@ -48,35 +68,16 @@ param:
     padding: 0 0 0 $pr;
   }
   padding: 0 0 0 $pl;
-
 }
 
 // 多重边框
 @mixin borders($arguments...) {
-	-border-top-colors: $arguments;
-	border-right-colors: $arguments;
-	border-bottom-colors: $arguments;
-	border-left-colors: $arguments;
-	-moz-border-top-colors: $arguments;
-	-moz-border-right-colors: $arguments;
-	-moz-border-bottom-colors: $arguments;
-	-moz-border-left-colors: $arguments;
-}
-
-// Test Apply Environment__________
-
-.d-btn01{
-  @include d-slide("url01", 20px);
-}
-
-.d-btn02{
-	@include d-slide("url02", 25px, wifexxx);
-}
-
-.d-btn03{
-	@include d-slide("url03", 30px, wifeeee, 15em);
-}
-
-.d-btn04{
-	@include d-slide("url04", 35px, wiXfe, 16em, 17px);
+  -border-top-colors: $arguments;
+  border-right-colors: $arguments;
+  border-bottom-colors: $arguments;
+  border-left-colors: $arguments;
+  -moz-border-top-colors: $arguments;
+  -moz-border-right-colors: $arguments;
+  -moz-border-bottom-colors: $arguments;
+  -moz-border-left-colors: $arguments;
 }

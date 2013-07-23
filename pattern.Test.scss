@@ -1,0 +1,16 @@
+@import "pattern.scss";
+
+.test-clearfix{
+  @extend .clearfix;
+}
+
+div{
+  @include transparent(0.2);
+}
+
+.d-btn03{
+	@include d-slide("url04", 35px, wiXfe, 1em);
+}
+.d-btn04{
+	@include d-slide("url04", 35px, wiXfe, 16em, 17px);
+}
